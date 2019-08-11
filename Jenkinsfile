@@ -1,6 +1,6 @@
-node()  //this is a pipeline ..remove comment when putting in the file
+node()  
 {
-    stage "Checkout Code"  //these are stages..remove comment when putting in the file
+    stage "Checkout Code"  
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/nvn17git/nvnshoppingcart']]])
     
     stage "Build Code"
@@ -8,6 +8,6 @@ node()  //this is a pipeline ..remove comment when putting in the file
         
     stage "Deploy Application"
         //sh 'rm /var/lib/tomcat/webapps/nvnshoppingcart*'
-        sh 'cp **/*.war /opt/devops'
+        sh 'cp **/*.war /opt/test'
 }
 
